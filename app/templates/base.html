@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Collaborative filtering subreddit recommender built using
+    neural networks.">
+        <meta name="author" content="Eduardo Yap">
+        <title>Subreddit Recommender</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Latest compiled and minified plotly.js JavaScript -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <!-- OR use a specific plotly.js release (e.g. version 1.5.0) -->
+        <script src="https://cdn.plot.ly/plotly-1.5.0.min.js"></script>
+
+        <!-- OR an un-minified version is also available -->
+        <script src="https://cdn.plot.ly/plotly-latest.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">Subreddit Recommender</span>
+        </nav>
+        <div class="container-fluid">
+            <div>
+                <form method="post">
+                    <label for="input_name">Recommend subreddits for subreddit </label>
+                    <input name="input_name" value={{ input_name }}>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            {% block content %}{% endblock %}
+            {% if plot != "null" %}
+            <hr>
+            <h2>t-SNE 3D Visualization</h2>
+            <div id="3dplot">
+
+                <script>
+                    var graph = {{ plot | safe }};
+                    if (graph) {
+                        Plotly.plot('3dplot', graph.data, graph.layout, {responsive: true});
+                    }
+                </script>
+            </div>
+            {% endif %}
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    </body>
+</html>
