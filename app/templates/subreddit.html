@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container-fluid">
+    <div>
         {% if recs %}
-            {% for rec in recs %}
-            <p><a href="https://reddit.com/r/{{ rec[0] }}" target="_blank">/r/{{ rec[0] }}</a>. Similarity: {{ rec[1] }}.</p>
+            {% for i in range(recs|length)%}
+            <span>{{ i+1 }}.<a href="https://reddit.com/r/{{ recs[i][0] }}" target="_blank">
+                /r/{{ recs[i][0] }}</a> ({{ recs[i][1] }} similarity).</span>
             {% endfor %}
         {% else %}
             <p>{{ input_name }} not found. Please type another subreddit.</p>

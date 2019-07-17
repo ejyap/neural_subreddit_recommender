@@ -3,6 +3,5 @@ config.py
 .idea/
 /src/.ipynb_checkpoints/*
 __pycache__
-/data/reddit_data.csv
 /data/reddit_ratings.csv
 /data/reddit_ratings_2.csv
