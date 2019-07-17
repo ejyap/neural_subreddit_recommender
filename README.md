@@ -3,7 +3,7 @@
 **Source:**
 [Neural Collaborative Filtering](https://github.com/hexiangnan/neural_collaborative_filtering)
 
-![t-SNE 3D](media/tsne_subreddits)
+![t-SNE 3D](media/tsne_subreddits.png)
 
 This repository hosts the subreddit recommender system I built by using neural network embeddings. I recreated a simplified version of the neural network outlined in the paper <a href="https://arxiv.org/pdf/1708.05031.pdf">"Neural Collaborative Filtering"</a>, authored by Xiangnan He in 2017. The paper proposes one of the first deep learning architectures modelled for collaborative filtering.
 It managed to outperform many of the popular collaborative filtering methods at the time. Other advances have been done in deep recommender systems since then, but I chose this paper, because it was straightforward and easy to apply to my own dataset.
