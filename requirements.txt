@@ -7,7 +7,6 @@ certifi==2019.6.16
 cffi==1.12.3
 chardet==3.0.4
 Click==7.0
-cmake==3.14.4
 colorama==0.4.1
 Cython==0.29.12
 decorator==4.4.0
