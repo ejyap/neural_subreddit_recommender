@@ -1,6 +1,5 @@
 from flask import request, render_template, redirect, url_for
 from app import app, utils, recommender, plotting
-import json
 
 tsne_weights = utils.load_h5_dataset('data/neumf_tsne_weights.h5', 'tsne_weights')
 embeddings = utils.load_h5_dataset('data/embeddings.h5', 'neumf_weights')

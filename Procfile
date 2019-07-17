@@ -1,1 +1,1 @@
-web: gunicorn subreddit_recommender:server
+web: gunicorn subreddit_recommender:app
