@@ -3,8 +3,8 @@ from app import app, utils, recommender, plotting
 import json
 
 tsne_weights = utils.load_h5_dataset('data/neumf_tsne_weights.h5', 'tsne_weights')
-embeddings = utils.load_h5_dataset('data/neumf_weights.h5', 'neumf_weights')
-[d, inv_d] = utils.load_json('data/subreddit10.json')
+embeddings = utils.load_h5_dataset('data/embeddings.h5', 'neumf_weights')
+[d, inv_d] = utils.load_json('data/subreddit_dicts.json')
 
 
 @app.route('/',  methods=['GET', 'POST'])
