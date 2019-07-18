@@ -19,7 +19,7 @@ To generate your own subreddit recommendations:
 ```python
 from app import recommender, utils
 
-embeddings = utils.load_h5_dataset('data/embeddings.h5', 'neumf_weights')
+embeddings = utils.load_npy('data/embeddings.npy')
 [d, inv_d] = utils.load_json('data/subreddit10.json')
 
 recommendations = recommender.get_recs_for_subreddit('Python', embeddings, d, inv_d, num_recommendations=10)
