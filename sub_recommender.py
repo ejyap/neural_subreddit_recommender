@@ -2,8 +2,8 @@ from flask import request, render_template, redirect, url_for
 from app import app, utils, recommender, plotting
 import os
 
-tsne_weights = utils.load_h5_dataset('data/neumf_tsne_weights.h5', 'tsne_weights')
-embeddings = utils.load_h5_dataset('data/embeddings.h5', 'neumf_weights')
+tsne_weights = utils.load_npy('data/tsne_weights.npy')
+embeddings = utils.load_npy('data/embeddings.npy')
 [d, inv_d] = utils.load_json('data/subreddit_dicts.json')
 
 
