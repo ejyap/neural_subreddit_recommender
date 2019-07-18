@@ -1,1 +1,1 @@
-web: gunicorn -w 4 -b "0.0.0.0:$PORT" sub_recommender:app
+web: gunicorn sub_recommender:app --log-file=-
