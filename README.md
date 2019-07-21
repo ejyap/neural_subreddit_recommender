@@ -1,5 +1,4 @@
-# Neural Subreddit Recommender
-## A practical application of Neural Collaborative Filtering
+## Neural Subreddit Recommender. A practical application of neural collaborative filtering.
 **Source:**
 [Neural Collaborative Filtering](https://github.com/hexiangnan/neural_collaborative_filtering)
 
