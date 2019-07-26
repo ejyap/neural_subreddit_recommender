@@ -3,6 +3,58 @@ import plotly.graph_objs as go
 from app import recommender, utils
 import numpy as np
 import json
+import random
+
+def dataset_tsne_3dplot_subset(tsne_weights, d, n):
+
+    subset = random.sample(range(0, tsne_weights.shape[0]), n)
+    subset_tsne_weights = tsne_weights[[subset]]
+    data = [go.Scatter3d(
+        x=subset_tsne_weights[:,0],
+        y=subset_tsne_weights[:,1],
+        z=subset_tsne_weights[:,2],
+        text=[d[str(i)] for i in subset],
+        textposition='top center',
+        mode='markers',
+        marker=dict(
+            color='darkgreen',
+            size=3,
+            opacity=0.2
+        ),
+        hoverinfo='text'
+    )]
+
+    layout = go.Layout(
+        height=600,
+        autosize=True,
+        scene=dict(
+            xaxis=dict(
+                zeroline=False,
+                showline=False,
+            ),
+            yaxis=dict(
+                zeroline=False,
+                showline=False,
+            ),
+            zaxis=dict(
+                zeroline=False,
+                showline=False,
+            ),
+            camera = dict(
+                up=dict(x=0, y=0, z=1)
+            )
+        ),
+        margin=dict(
+            l=0,
+            r=0,
+            b=0,
+            t=0
+        )
+    )
+
+    graphJSON = json.dumps(go.Figure(data=data, layout=layout), cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON
 
 def dataset_tsne_3dplot(tsne_weights, d):
     data = [go.Scatter3d(

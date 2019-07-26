@@ -9,7 +9,7 @@ r = praw.Reddit(client_id=config.ID,
                      client_secret=config.SECRET,
                      user_agent=config.USER_AGENT)
 
-output_file = './data/reddit_ratings_2.csv'
+output_file = '../data/reddit_ratings_2.csv'
 
 iterations = 1000
 

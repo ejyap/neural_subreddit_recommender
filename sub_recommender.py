@@ -9,7 +9,7 @@ embeddings = utils.load_npy('data/embeddings.npy')
 
 @app.route('/',  methods=['GET', 'POST'])
 def base():
-    dataset_tsne_3dplot = plotting.dataset_tsne_3dplot(tsne_weights, d)
+    dataset_tsne_3dplot = plotting.dataset_tsne_3dplot_subset(tsne_weights, d, 10000)
     if request.method == 'POST':
         input_subreddit = request.form['input_name']
         num_recommendations = int(request.form['num_recommendations'])
