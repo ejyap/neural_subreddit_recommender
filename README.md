@@ -1,5 +1,4 @@
-# Neural Subreddit Recommender
-
+## Neural Subreddit Recommender. A practical application of neural collaborative filtering.
 **Source:**
 [Neural Collaborative Filtering](https://github.com/hexiangnan/neural_collaborative_filtering)
 
@@ -20,7 +19,7 @@ To generate your own subreddit recommendations:
 from app import recommender, utils
 
 embeddings = utils.load_npy('data/embeddings.npy')
-[d, inv_d] = utils.load_json('data/subreddit10.json')
+[d, inv_d] = utils.load_json('data/subreddit_dicts.json')
 
 recommendations = recommender.get_recs_for_subreddit('Python', embeddings, d, inv_d, num_recommendations=10)
 ```
