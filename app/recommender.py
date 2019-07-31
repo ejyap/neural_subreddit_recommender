@@ -9,9 +9,13 @@ def get_tsne_weights_for_subreddits(subreddits, tsne_weights, inv_d):
 def get_recs_for_subreddit(subreddit, weights, d, inv_d, num_recommendations):
     if subreddit.lower() not in inv_d.keys():
         return None
+    # get subreddit encoded id
     index = inv_d[subreddit.lower()]
-    dists = np.dot(weights, weights[int(index)])
-    sorted_dists = np.argsort(dists)
-    closest = sorted_dists[-num_recommendations-1:-1]
-    return [(d[str(c)], round(dists[c], 3), c) for c in reversed(closest)]
+
+    # dot product of embeddings and input subreddit
+    similarities = np.dot(weights, weights[int(index)])
+
+    # return the top recommendations by sorting the similarities
+    recommendations = np.argsort(similarities)[-num_recommendations-1:-1]
+    return [(d[str(c)], round(dists[c], 3), c) for c in reversed(recommendations)]
 
