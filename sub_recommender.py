@@ -6,7 +6,6 @@ tsne_weights = utils.load_npy('data/tsne_weights.npy')
 embeddings = utils.load_npy('data/embeddings.npy')
 [d, inv_d] = utils.load_json('data/subreddit_dicts.json')
 
-
 @app.route('/',  methods=['GET', 'POST'])
 def base():
     dataset_tsne_3dplot = plotting.dataset_tsne_3dplot_subset(tsne_weights, d, 10000)

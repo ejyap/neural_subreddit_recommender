@@ -13,9 +13,9 @@ def get_recs_for_subreddit(subreddit, weights, d, inv_d, num_recommendations):
     index = inv_d[subreddit.lower()]
 
     # dot product of embeddings and input subreddit
-    similarities = np.dot(weights, weights[int(index)])
+    similarities = np.argsort(np.dot(weights, weights[int(index)]))
 
     # return the top recommendations by sorting the similarities
-    recommendations = np.argsort(similarities)[-num_recommendations-1:-1]
-    return [(d[str(c)], round(dists[c], 3), c) for c in reversed(recommendations)]
+    recommendations = similarities[-num_recommendations-1:-1]
+    return [(d[str(c)], round(similarities[c], 3), c) for c in reversed(recommendations)]
 
